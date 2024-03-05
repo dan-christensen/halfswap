@@ -1,0 +1,29 @@
+block append scripts
+    script(type="text/javascript") $(document).ready(function () { var url = window.location; $('ul.nav-pills a[href="'+ url +'"]').parent().addClass('active'); $('ul.nav-pills a').filter(function() { return this.href == url; }).parent().addClass('active'); });
+div.row
+    div.col-sm-3
+            ul.nav.nav-pills.nav-stacked
+                li
+                    a(href='/user/profile') My Profile
+                li
+                    a(href='/user/update') Edit My Profile
+                li
+                    a(href='/user/trades') My Trades
+                li
+                    a(href='/user/receivedRequests') My Received Requests <span class='badge'>#{tradeRecCount}</span>
+                li
+                    a(href='/user/sentRequests') My Sent Requests <span class='badge'>#{tradeSenCount}</span>
+    div.col-sm-7
+        h1 #{name}
+        if userProfile
+            include partials/userProfilePartial
+        else if userUpdate
+            include partials/userUpdatePartial
+        else if userTrades
+            include partials/userTradesPartial
+        else if receivedTradeReqs
+            include partials/userReceivedTradeRequestsPartial
+        else if sentTradeReqs
+            include partials/userSentTradeRequestsPartial
+    div.col-sm-2
+        a(href='/trades/new').btn.btn-warning New Trade

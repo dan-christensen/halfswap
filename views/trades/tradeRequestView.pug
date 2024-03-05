@@ -1,0 +1,17 @@
+div.row
+    include partials/tradeRequestViewPartial
+div.row
+    div.col-xs-10.col-xs-offset-1
+        div.panel.panel-default
+            div.panel-body
+                if tradeRequest.pending
+                    div.col-xs-4.col-xs-offset-10
+                        div.btn-group-vertical
+                            a(href='/trades/requests/accept/' + tradeRequest._id).btn.btn-success <span class ='fa fa-check-circle-o fa-lg'></span> Accept
+                            a(href='/trades/requests/decline/' + tradeRequest._id).btn.btn-danger <span class ='fa fa-ban fa-lg'></span> Decline
+                else
+                    div
+                        if user._id == tradeRequest.askingUser._id.toString()
+                            a(href=tradeRequest.askingUserLabel target='_blank').btn.btn-lg.btn-success View your shipping label
+                        else
+                            a(href=tradeRequest.ownerUserLabel target='_blank').btn.btn-lg.btn-success View your shipping label

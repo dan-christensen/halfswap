@@ -1,0 +1,14 @@
+div.col-sm-6.col-sm-offset-3
+    h1 <span class='fa fa-sign-in'></span> #{name}
+    if message.length > 0
+        div.alert.alert-danger #{message}
+    form(method='POST' action='/user/login')
+        div.form-group
+            label(for='email') Email:
+            input(type='text', placeholder='Email', name='email').form-control#email
+        div.form-group
+            label(for='password') Password:
+            input(type='password', placeholder='Password', name='password').form-control#password
+        div
+            button(type='submit').btn.btn-warning.btn-lg Log In
+            p Need an account? <a href='/user/signup'>Sign Up</a>!

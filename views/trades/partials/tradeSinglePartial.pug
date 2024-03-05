@@ -1,0 +1,10 @@
+div.row
+    div.col-sm-3
+    div.col-sm-7.span7
+        h1 #{name}
+        include tradeItem
+    div.col-sm-2
+        if authenticated
+            a(href='/trades/new').btn.btn-warning New Trade
+        else
+            p You must be a <a href='/user'>member</a> to create trades.

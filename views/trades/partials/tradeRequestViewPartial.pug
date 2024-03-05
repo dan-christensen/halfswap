@@ -1,0 +1,32 @@
+div.col-xs-1
+div.col-xs-5
+    h3 Offer Trade
+    div.panel.panel-primary
+        div.panel-heading
+            h3.panel-title
+                a(href='/trades/view/' + tradeRequest.offerTrade._id) #{tradeRequest.offerTrade.shoeBrand} #{tradeRequest.offerTrade.shoeModel}'s
+        div.panel-body
+            - var url = tradeRequest.offerTrade.imgUrl;
+            img(src=url).pull-right.gap-left.trade-req-img
+            p Gender: #{tradeRequest.offerTrade.gender}
+            p Size: #{tradeRequest.offerTrade.shoeSize}
+            p Foot: #{tradeRequest.offerTrade.amputee}
+            p Color: #{tradeRequest.offerTrade.color}
+            p Quality: #{tradeRequest.offerTrade.quality}
+            p #{tradeRequest.offerTrade.desc}
+div.col-xs-5
+    h3 Wanted Trade
+    div.panel.panel-primary
+        div.panel-heading
+            h3.panel-title
+                a(href='/trades/view/' + tradeRequest.wantedTrade._id) #{tradeRequest.wantedTrade.shoeBrand} #{tradeRequest.wantedTrade.shoeModel}'s
+        div.panel-body
+            - var url = tradeRequest.wantedTrade.imgUrl;
+            img(src=url).pull-right.gap-left.trade-req-img
+            p Gender: #{tradeRequest.wantedTrade.gender}
+            p Size: #{tradeRequest.wantedTrade.shoeSize}
+            p Foot: #{tradeRequest.wantedTrade.amputee}
+            p Color: #{tradeRequest.wantedTrade.color}
+            p Quality: #{tradeRequest.wantedTrade.quality}
+            p #{tradeRequest.wantedTrade.desc}
+div.col-xs-1

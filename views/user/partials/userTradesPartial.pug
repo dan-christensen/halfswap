@@ -1,0 +1,5 @@
+if viewUserTrades
+    each trade in allTrades
+        include ../../trades/partials/tradeItem
+else if editUserTrade
+    include userUpdateTradePartial

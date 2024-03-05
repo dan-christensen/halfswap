@@ -1,0 +1,27 @@
+if tradeRequests.length === 0
+    div.panel.panel-primary
+        div.panel-body
+            cite You have no trade requests.
+else
+    each trade in tradeRequests
+        div.panel.panel-default
+            div.panel-heading
+                h5
+                    if trade.pending
+                        a(href='/trades/requests/view/' + trade._id) New Request from #{trade.askingUser.local.userName}
+                        |  <span class='label label-warning'>Pending</span>
+                    else
+                        a(href='/trades/requests/view/' + trade._id) Request from #{trade.askingUser.local.userName}
+            div.panel-body
+                div.col-xs-5
+                    p Offer
+                    a(href='/trades/view/' + trade.offerTrade._id).text-info  #{trade.offerTrade.shoeBrand} - #{trade.offerTrade.shoeModel}'s
+                div.col-xs-5
+                    p Wanted
+                    a(href='/trades/view/' + trade.wantedTrade._id).text-info #{trade.wantedTrade.shoeBrand} - #{trade.wantedTrade.shoeModel}'s
+                div.col-xs-2
+                    if trade.pending
+                        div.btn-group-vertical
+                            a(href='/trades/requests/accept/' + trade._id).btn.btn-xs.btn-success <span class ='fa fa-check-circle-o fa-lg'></span> Accept
+                            a(href='/trades/requests/decline/' + trade._id).btn.btn-xs.btn-danger <span class ='fa fa-ban fa-lg'></span> Decline
+

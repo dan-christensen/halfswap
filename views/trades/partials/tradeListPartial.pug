@@ -1,0 +1,48 @@
+div.row
+    div.col-xs-3
+        h1 #{name}
+    div.col-xs-5
+        form(id='searchForm' method='GET')
+            div.input-group
+                input(name='search' type='text' placeholder='Search').form-control#searchBox
+                span.input-group-btn
+                    button(id='searchButton' type='submit').btn.btn-warning Go!
+    div.col-xs-2
+        div.dropdown
+            button(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true').btn.btn-default.dropdown-toggle#sortBy Sort By <span class='caret'></span>
+            ul(aria-labelledby='sortBy').dropdown-menu
+                li
+                    a#sortDefault Default
+                li
+                    a#sortDateAssc Date <span class='fa fa-arrow-down'>
+                li
+                    a#sortDateDesc Date <span class='fa fa-arrow-up'>
+                li
+                    a#sortSizeAssc Size <span class='fa fa-arrow-down'>
+                li
+                    a#sortSizeDesc Size <span class='fa fa-arrow-up'>
+                script.
+                    sessionStorage.setItem('prev', '');
+                    document.getElementById('sortDefault').href = '/trades?search=' + sessionStorage.getItem('prev');
+                    document.getElementById('sortDateDesc').href = '/trades?search=' + sessionStorage.getItem('prev') + '&sort=-date';
+                    document.getElementById('sortDateAssc').href = '/trades?search=' + sessionStorage.getItem('prev') + '&sort=date';
+                    document.getElementById('sortSizeDesc').href = '/trades?search=' + sessionStorage.getItem('prev') + '&sort=-shoeSize';
+                    document.getElementById('sortSizeAssc').href = '/trades?search=' + sessionStorage.getItem('prev') + '&sort=shoeSize';
+    div.col-xs-2
+        if authenticated
+            a(href='/trades/new').btn.btn-warning New Trade
+        else
+            p You must be a <a href='/user'>member</a> to create trades.
+div.row
+    div.col-sm-3
+        include tradeListFilterPartial
+    div.col-sm-7
+        //h1 #{name}
+        br
+        each trade in allTrades
+            include tradeItem
+    div.col-sm-2
+        //if authenticated
+        //    a(href='/trades/new').btn.btn-warning New Trade
+        //else
+        //    p You must be a <a href='/user'>member</a> to create trades.

@@ -1,0 +1,10 @@
+div.row
+    div.col-sm-2
+    div.col-sm-8
+        h1 #{name}
+        h3 Select Your Trade Offer
+        each trade in userOneTrades
+            if trade.open
+                include partials/tradeItem
+    div.col-sm-2
+

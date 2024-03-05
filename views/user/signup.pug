@@ -1,0 +1,139 @@
+div.col-sm-6.col-sm-offset-3
+       h1 <span class='fa fa-user'></span> #{name}
+       if message.length > 0
+           each m in message
+               div.alert.alert-danger #{m}
+
+       form(method='POST' action='/user/signup')
+           fieldset
+               div.form-group
+                   label(for='userName') Username:
+                   input(type='text', placeholder='Username', name='userName').form-control#userName
+               div.form-group
+                   label(for='email') Email:
+                   input(type='text', placeholder='Email', name='email').form-control#email
+               div.form-group
+                   label(for='password') Password:
+                   input(type='password', placeholder='Password', name='password').form-control#password
+                   label(for='conPassword') Confirm Password:
+                   input(type='password', placeholder='Confirm Password', name='conPassword').form-control#conPassword
+               div.form-group
+                   label(for='firstName') First Name:
+                   input(type='text', placeholder='First Name', name='firstName').form-control#firstName
+                   label(for='middleName') Middle Name (optonal):
+                   input(type='text', placeholder='Middle Name (optonal)', name='middleName').form-control#middleName
+                   label(for='lastName') Last Name:
+                   input(type='text', placeholder='Last Name', name='lastName').form-control#lastName
+               div.form-group
+                   label(for='gender') Gender:
+                   select(name='gender').form-control#gender
+                       option(value='Male') Male
+                       option(value='Female') Female
+                       option(value='Other') Other
+               div.form-group
+                   label(for='street') Street:
+                   input(type='text', placeholder='Street', name='street').form-control#street
+                   label(for='city') City:
+                   input(type='text', placeholder='City', name='city').form-control#city
+                   label(for='state') State:
+                   select(name='state').form-control#state
+                       option(value='AL') Alabama (AL)
+                       option(value='AK') Alaska (AK)
+                       option(value='AZ') Arizona (AZ)
+                       option(value='AR') Arkansas (AR)
+                       option(value='CA') California (CA)
+                       option(value='CO') Colorado (CO)
+                       option(value='CT') Connecticut (CT)
+                       option(value='DE') Delaware (DE)
+                       option(value='DC') District Of Columbia (DC)
+                       option(value='FL') Florida (FL)
+                       option(value='GA') Georgia (GA)
+                       option(value='HI') Hawaii (HI)
+                       option(value='ID') Idaho (ID)
+                       option(value='IL') Illinois (IL)
+                       option(value='IN') Indiana (IN)
+                       option(value='IA') Iowa (IA)
+                       option(value='KS') Kansas (KS)
+                       option(value='KY') Kentucky (KY)
+                       option(value='LA') Louisiana (LA)
+                       option(value='ME') Maine (ME)
+                       option(value='MD') Maryland (MD)
+                       option(value='MA') Massachusetts (MA)
+                       option(value='MI') Michigan (MI)
+                       option(value='MN') Minnesota (MN)
+                       option(value='MS') Mississippi (MS)
+                       option(value='MO') Missouri (MO)
+                       option(value='MT') Montana (MT)
+                       option(value='NE') Nebraska (NE)
+                       option(value='NV') Nevada (NV)
+                       option(value='NH') New Hampshire (NH)
+                       option(value='NJ') New Jersey (NJ)
+                       option(value='NM') New Mexico (NM)
+                       option(value='NY') New York (NY)
+                       option(value='NC') North Carolina (NC)
+                       option(value='ND') North Dakota (ND)
+                       option(value='OH') Ohio (OH)
+                       option(value='OK') Oklahoma (OK)
+                       option(value='OR') Oregon (OR)
+                       option(value='PA') Pennsylvania (PA)
+                       option(value='RI') Rhode Island (RI)
+                       option(value='SC') South Carolina (SC)
+                       option(value='SD') South Dakota (SD)
+                       option(value='TN') Tennessee (TN)
+                       option(value='TX') Texas (TX)
+                       option(value='UT') Utah (UT)
+                       option(value='VT') Vermont (VT)
+                       option(value='VA') Virginia (VA)
+                       option(value='WA') Washington (WA)
+                       option(value='WV') West Virginia (WV)
+                       option(value='WI') Wisconsin (WI)
+                       option(value='WY') Wyoming (WY)
+                   label(for='zipCode') Zip Code:
+                   input(type='text', placeholder='Zip Code', name='zipCode').form-control#zipCode
+               div.form-group
+                   label(for='shoeSize') Shoe Size:
+                   select(name='shoeSize').form-control#shoeSize
+                       option(value= '4') 4
+                       option(value= '4.5') 4.5
+                       option(value= '5') 5
+                       option(value= '5.5') 5.5
+                       option(value= '6') 6
+                       option(value= '6.5') 6.5
+                       option(value= '7') 7
+                       option(value= '7.5') 7.5
+                       option(value= '8') 8
+                       option(value= '8.5') 8.5
+                       option(value= '9' selected='true') 9
+                       option(value= '9.5') 9.5
+                       option(value= '10') 10
+                       option(value= '10.5') 10.5
+                       option(value= '11') 11
+                       option(value= '11.5') 11.5
+                       option(value= '12') 12
+                       option(value= '12.5') 12.5
+                       option(value= '13') 13
+                       option(value= '13.5') 13.5
+                       option(value= '14') 14
+                       option(value= '14.5') 14.5
+                       option(value= '15') 15
+                       option(value= '15.5') 15.5
+                       option(value= '16') 16
+                       option(value= '16.5') 16.5
+                       option(value= '17') 17
+                       option(value= '17.5') 17.5
+                       option(value= '18') 18
+                       option(value= '18.5') 18.5
+                       option(value= '19') 19
+                       option(value= '19.5') 19.5
+                       option(value= '20') 20
+                       option(value= 'OTHER') Other
+                   label(for='amputee') Amputee:
+                   select(name='amputee').form-control#amputee
+                       option(value= 'Right', selected=true) Right
+                       option(value= 'Left') Left
+               div.btn-toolbar
+                   a(href='/user').btn.btn-default.btn-lg Cancel
+                   button(type='submit').btn.btn-warning.btn-lg Sign up
+
+               p Already have an account? <a href='/user/login'>Login</a>!
+

@@ -1,0 +1,126 @@
+div.col-sm-12
+    form(method='POST' action='/user/trades/update/' + trade._id)
+        div.form-group
+            label(for='shoeBrand') Shoe Brand:
+            - shoeBrand = trade.shoeBrand
+            input(type='text', value=shoeBrand, name='shoeBrand').form-control#shoeBrand
+        div.form-group
+            label(for='shoeModel') Shoe Model:
+            - shoeModel = trade.shoeModel
+            input(type='text', value=shoeModel, name='shoeModel').form-control#shoeModel
+        div.form-group
+            label(for='gender') Gender:
+            select(name='gender').form-control#gender
+                option(value='Men') Men
+                option(value='Women') Women
+                option(value='Unisex') Unisex
+            script.
+                var gender = document.getElementById('gender').options;
+                for (var i = 0; i < gender.length; i++)
+                    if (gender[i].value == '#{trade.gender}') gender[i].selected = true;
+        div.form-group
+            label(for='shoeSize') Shoe Size:
+            select(name='shoeSize').form-control#shoeSize
+                option(value= '4') 4
+                option(value= '4.5') 4.5
+                option(value= '5') 5
+                option(value= '5.5') 5.5
+                option(value= '6') 6
+                option(value= '6.5') 6.5
+                option(value= '7') 7
+                option(value= '7.5') 7.5
+                option(value= '8') 8
+                option(value= '8.5') 8.5
+                option(value= '9') 9
+                option(value= '9.5') 9.5
+                option(value= '10') 10
+                option(value= '10.5') 10.5
+                option(value= '11') 11
+                option(value= '11.5') 11.5
+                option(value= '12') 12
+                option(value= '12.5') 12.5
+                option(value= '13') 13
+                option(value= '13.5') 13.5
+                option(value= '14') 14
+                option(value= '14.5') 14.5
+                option(value= '15') 15
+                option(value= '15.5') 15.5
+                option(value= '16') 16
+                option(value= '16.5') 16.5
+                option(value= '17') 17
+                option(value= '17.5') 17.5
+                option(value= '18') 18
+                option(value= '18.5') 18.5
+                option(value= '19') 19
+                option(value= '19.5') 19.5
+                option(value= '20') 20
+                option(value= 'OTHER') Other
+            script.
+                var shoeSize = document.getElementById('shoeSize').options;
+                for (var i = 0; i < shoeSize.length; i++)
+                    if (shoeSize[i].value == '#{trade.shoeSize}') shoeSize[i].selected = true;
+        div.form-group
+            label(for='color') Color:
+            select(name='color').form-control#color
+                option(value= 'No Color') No Color
+                option(value= 'Black') Black
+                option(value= 'Blue') Blue
+                option(value= 'Brown') Brown
+                option(value= 'Gold') Gold
+                option(value= 'Gray') Gray
+                option(value= 'Green') Green
+                option(value= 'Ivory/Cream') Ivory/Cream
+                option(value= 'Multi-Colored') Multi
+                option(value= 'Orange') Orange
+                option(value= 'Pink') Pink
+                option(value= 'Purple') Purple
+                option(value= 'Red') Red
+                option(value= 'Silver') Silver
+                option(value= 'Ten/Beige') Tan/Beige
+                option(value= 'White') White
+                option(value= 'Yellow') Yellow
+            script.
+                var color = document.getElementById('color').options;
+                for (var i = 0; i < color.length; i++)
+                    if (color[i].value == '#{trade.color}') color[i].selected = true;
+        div.form-group
+            label(for='amputee') Foot:
+            select(name='amputee').form-control#amputee
+                option(value= 'Right') Right
+                option(value= 'Left') Left
+                option(value= 'Both') Both
+            script.
+                var amputee = document.getElementById('amputee').options;
+                for (var i = 0; i < amputee.length; i++)
+                    if (amputee[i].value == '#{trade.amputee}') amputee[i].selected = true;
+        div.form-group
+            label(for='laceType') Lace Type:
+            select(name='laceType').form-control#laceType
+                option(value= 'Laces') Laces
+                option(value= 'Velcro') Hook and Loop (Velcro)
+                option(value= 'Elastic') Elastic
+                option(value= 'Strap') Strap
+                option(value= 'Clutch Real') Clutch Real
+                option(value= 'Other') Other
+            script.
+                var laceType = document.getElementById('laceType').options;
+                for (var i = 0; i < laceType.length; i++)
+                    if (laceType[i].value == '#{trade.laceType}') laceType[i].selected = true;
+        div.form-group
+            label(for='desc') Description:
+            - desc = trade.desc
+            textarea(rows='3' style='height: 100px; resize: vertical;' name='desc').form-control#desc #{desc}
+        div.form-group
+            label(for='quality') Quality:
+            select(name='quality').form-control#quality
+                option(value= 'New', selected=true) New
+                option(value= 'Mint') Mint
+                option(value= 'Good') Good
+                option(value= 'Fair') Fair
+                option(value= 'Poor') Poor
+            script.
+                var quality = document.getElementById('quality').options;
+                for (var i = 0; i < quality.length; i++)
+                    if (quality[i].value == '#{trade.quality}') quality[i].selected = true;
+        div.btn-toolbar
+            button(type='submit').btn.btn-warning.btn-lg Update

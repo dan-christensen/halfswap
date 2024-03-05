@@ -1,0 +1,96 @@
+form#tradeFilter
+    div.form-group
+        label(for='gender') Gender:
+        select(name='gender').form-control.input-sm#filterGender
+            option(value='' disabled selected='true') Gender
+            option(value='Men') Men
+            option(value='Women') Women
+            option(value='Unisex') Unisex
+    div.form-group
+        label(for='shoeSize') Shoe Size:
+        select(name='shoeSize').form-control.input-sm#filterShoeSize
+            option(value='' disabled selected='true') Shoe Size
+            option(value= '4') 4
+            option(value= '4.5') 4.5
+            option(value= '5') 5
+            option(value= '5.5') 5.5
+            option(value= '6') 6
+            option(value= '6.5') 6.5
+            option(value= '7') 7
+            option(value= '7.5') 7.5
+            option(value= '8') 8
+            option(value= '8.5') 8.5
+            option(value= '9') 9
+            option(value= '9.5') 9.5
+            option(value= '10') 10
+            option(value= '10.5') 10.5
+            option(value= '11') 11
+            option(value= '11.5') 11.5
+            option(value= '12') 12
+            option(value= '12.5') 12.5
+            option(value= '13') 13
+            option(value= '13.5') 13.5
+            option(value= '14') 14
+            option(value= '14.5') 14.5
+            option(value= '15') 15
+            option(value= '15.5') 15.5
+            option(value= '16') 16
+            option(value= '16.5') 16.5
+            option(value= '17') 17
+            option(value= '17.5') 17.5
+            option(value= '18') 18
+            option(value= '18.5') 18.5
+            option(value= '19') 19
+            option(value= '19.5') 19.5
+            option(value= '20') 20
+            option(value= 'OTHER') Other
+    div.form-group
+        label(for='color') Color:
+        select(name='color').form-control.input-sm#filterColor
+            option(value='' disabled selected='true') Color
+            option(value= 'No Color') No Color
+            option(value= 'Black') Black
+            option(value= 'Blue') Blue
+            option(value= 'Brown') Brown
+            option(value= 'Gold') Gold
+            option(value= 'Gray') Gray
+            option(value= 'Green') Green
+            option(value= 'Ivory/Cream') Ivory/Cream
+            option(value= 'Multi-Colored') Multi
+            option(value= 'Orange') Orange
+            option(value= 'Pink') Pink
+            option(value= 'Purple') Purple
+            option(value= 'Red') Red
+            option(value= 'Silver') Silver
+            option(value= 'Ten/Beige') Tan/Beige
+            option(value= 'White') White
+            option(value= 'Yellow') Yellow
+    div.form-group
+        label(for='amputee') Foot:
+        select(name='amputee').form-control.input-sm#filterAmputee
+            option(value='' disabled selected='true') Amputee
+            option(value= 'Right') Right
+            option(value= 'Left') Left
+            option(value= 'Both') Both
+    div.form-group
+        label(for='laceType') Lace Type:
+        select(name='laceType').form-control.input-sm#filterLaceType
+            option(value='' disabled selected='true') Lace Type
+            option(value= 'Laces') Laces
+            option(value= 'Velcro') Hook and Loop (Velcro)
+            option(value= 'Elastic') Elastic
+            option(value= 'Strap') Strap
+            option(value= 'Clutch Real') Clutch Real
+            option(value= 'Other') Other
+    div.form-group
+        label(for='quality') Quality:
+        select(name='quality').form-control.input-sm#filterQuality
+            option(value='' disabled selected='true') Quality
+            option(value= 'New') New
+            option(value= 'Mint') Mint
+            option(value= 'Good') Good
+            option(value= 'Fair') Fair
+            option(value= 'Poor') Poor
+    div.btn-group
+        button(type='submit').btn.btn-warning Submit
+        a(href='/trades').btn.btn-danger Reset

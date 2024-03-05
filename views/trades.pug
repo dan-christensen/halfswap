@@ -1,0 +1,12 @@
+extends layout
+block content
+    if newTrade && authenticated
+        include trades/newTrade
+    else if newTrade && !authenticated
+        include trades/newTradeNotUser
+    else if newTradeRequest && authenticated
+        include trades/newTradeRequest
+    else if tradeRequestView && authenticated
+        include trades/tradeRequestView
+    else if !newTrade
+        include trades/tradeList

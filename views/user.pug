@@ -1,0 +1,10 @@
+extends layout
+block content
+    if !signup && !login && !loggedIn
+        include user/userWelcome
+    else if login
+        include user/login
+    else if signup
+        include user/signup
+    else if loggedIn
+        include user/profile

@@ -1,0 +1,30 @@
+body {
+    padding-top: 10px; 
+}
+
+.gap-right {
+    margin-right: 10px;
+}
+
+.gap-left {
+    margin-left: 10px;
+}
+
+.trade-img {
+    width: 256px;
+    height: auto;
+}
+
+.trade-req-img {
+    width: 128px;
+    height: auto;
+}
+
+.clickable-row:hover {
+    cursor: pointer;
+}
+
+.padding-0 {
+    padding-left: 0;
+    padding-right: 0;
+}

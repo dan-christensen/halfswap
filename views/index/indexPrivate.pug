@@ -1,0 +1,48 @@
+div.row
+    div.col-sm-6
+        div.panel.panel-primary
+            div.panel-heading
+                h3.panel-title
+                    a(href='/user/receivedRequests') My Trade Requests
+            if tradeRequests.length === 0
+                div.panel-body
+                    cite You have no trade requests.
+            else
+                div.panel-body
+                    each trade in tradeRequests
+                        div.panel.panel-default
+                            div.panel-heading
+                                h5
+                                    if trade.pending
+                                        a(href='/trades/requests/view/' + trade._id) New Request from #{trade.askingUser.local.userName}
+                                        |  <span class='label label-warning'>Pending</span>
+                                    if !trade.pending
+                                        a(href='/trades/requests/view/' + trade._id) Request from #{trade.askingUser.local.userName}
+                            div.panel-body
+                                div.col-xs-6
+                                    p Offer
+                                    a(href='/trades/view/' + trade.offerTrade._id).text-info  #{trade.offerTrade.shoeBrand} - #{trade.offerTrade.shoeModel}'s
+                                div.col-xs-6
+                                    p Wanted
+                                    a(href='/trades/view/' + trade.wantedTrade._id).text-info #{trade.wantedTrade.shoeBrand} - #{trade.wantedTrade.shoeModel}'s
+    div.col-sm-6
+        div.panel.panel-primary
+            div.panel-heading
+                h3.panel-title Suggested Trades
+            div.panel-body
+                table.table.table-striped.table-hover.table-danger
+                    thead
+                        tr
+                            th Brand
+                            th Model
+                            th Size
+                            th Gender
+                            th Date
+                    tbody
+                    each trade in suggestedTrades
+                        tr(data-href='/trades/view/' + trade._id).clickable-row
+                            td #{trade.shoeBrand}
+                            td #{trade.shoeModel}
+                            td #{trade.shoeSize}
+                            td #{trade.gender}
+                            td #{trade.date}

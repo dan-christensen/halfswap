@@ -1,0 +1,36 @@
+div.panel.panel-primary
+    div.panel-heading
+        h3.panel-title
+            a(href='/trades/view/' + trade._id) #{trade.shoeBrand} #{trade.shoeModel}'s
+    div.panel-body
+        - var url = trade.imgUrl;
+        img(src=url).pull-right.gap-left.trade-img
+        p Gender: #{trade.gender}
+        p Size: #{trade.shoeSize}
+        p Foot: #{trade.amputee}
+        p Color: #{trade.color}
+        p Quality: #{trade.quality}
+        p #{trade.desc}
+        if userTrades
+            div.btn-group
+                a(type='button' href='/user/trades/update/' + trade._id).btn.btn-success Edit
+                a(type='button' href='/user/trades/delete/' + trade._id).btn.btn-danger Delete
+        else
+            if authenticated && trade.userID != user._id
+                a(href='/trades/newRequest/' + trade._id).btn.btn-warning Send Trade Request
+                p Posted by #{trade.creator} on #{trade.date}
+            else if authenticated && trade.userID == user._id
+                if newTradeRequest
+                    form(id='newRequestButton' + trade._id method='POST' action='')
+                        div
+                            button(type='submit').btn.btn-warning Select for Trade
+                        script.
+                            document.getElementById('newRequestButton' + '#{trade._id}').action = window.location.toString() + '/#{trade._id}';
+                else
+                    div.well.well-sm
+                        div.btn-group
+                            a(type='button' href='/user/trades/update/' + trade._id).btn.btn-success Edit
+                            a(type='button' href='/user/trades/delete/' + trade._id).btn.btn-danger Delete
+            else
+                div.well.well-sm
+                    p You must be a <a href='/user'>member</a> to send trade requests.

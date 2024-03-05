@@ -1,0 +1,35 @@
+nav.navbar.navbar-default
+    div.container-fluid
+        div.navbar-header
+            a(href='/').navbar-brand HalfSwap
+        ul.nav.navbar-nav.main-nav
+            li
+                a(href='/') Home
+            li
+                a(href='/trades') Trades
+
+        ul.nav.navbar-nav.navbar-right
+            if authenticated
+                li.dropdown
+                    a(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false').dropdown-toggle <span class='fa fa-user'></span> #{user.local.name.first} <span class='caret'></span>
+                    ul.dropdown-menu
+                        li
+                            a(href='/user/profile') My Profile
+                        li
+                            a(href='/user/trades') My Trades
+                        li
+                            a(href='/user/receivedRequests') My Recived Requests
+                        li
+                            a(href='/user/sentRequests') My Sent Requests
+                        li(role='separator').divider
+                        li
+                            a(href='/contact') Contact
+                        li
+                            a(href='/about') About
+                        li
+                            a(href='/user/logout').btn-danger Log Out
+            if !authenticated
+                li
+                    a(href='/user/signup') <span class='fa fa-user'></span> Sign Up
+                li
+                    a(href='/user/login') <span class='fa fa-sign-in'></span> Login
